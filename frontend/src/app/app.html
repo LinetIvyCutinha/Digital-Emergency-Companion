@@ -1,0 +1,1370 @@
+
+<!-- ================= SIDEBAR ================= -->
+
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+
+        <div>
+            <h2>Emergency</h2>
+            <span>Companion</span>
+        </div>
+    </div>
+
+    <nav class="navigation">
+
+        <button
+            type="button"
+            class="nav-item active"
+            (click)="showSection('home', $event.currentTarget)">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('hospitals', $event.currentTarget)">
+            <i class="fa-solid fa-hospital"></i>
+            <span>Hospitals</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('firstaid', $event.currentTarget)">
+            <i class="fa-solid fa-kit-medical"></i>
+            <span>First Aid</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('contacts', $event.currentTarget)">
+            <i class="fa-solid fa-users"></i>
+            <span>Contacts</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('medical', $event.currentTarget)">
+            <i class="fa-solid fa-notes-medical"></i>
+            <span>Medical Info</span>
+        </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('history', $event.currentTarget)">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>Emergency History</span>
+        </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <button
+            type="button"
+            class="nav-item"
+            (click)="showSection('settings', $event.currentTarget)">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </button>
+
+    </div>
+
+</aside>
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <button class="menu-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="page-title">
+            <h1>Emergency Dashboard</h1>
+            <p>Your safety companion when you need it most.</p>
+        </div>
+
+        <div class="profile">
+
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="content">
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home" class="page-section active-section">
+
+            <div class="welcome">
+
+                <div>
+                    <span class="small-label">WELCOME EVERYONE</span>
+                    <h2>Hello👋</h2>
+                    <p>Stay prepared. Stay safe.</p>
+                </div>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    System Ready
+                </div>
+
+            </div>
+
+
+            <!-- SOS CARD -->
+
+            <div class="sos-card">
+
+                <div class="sos-content">
+
+                    <span class="emergency-label">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        EMERGENCY ASSISTANCE
+                    </span>
+
+                    <h2>Need immediate help?</h2>
+
+                    <p>
+                        Press the SOS button to alert your emergency
+                        contacts and share your current location.
+                    </p>
+
+                    <button class="sos-button" (click)="openSOS()">
+                        <span class="sos-pulse"></span>
+                        <i class="fa-solid fa-phone"></i>
+                        SOS
+                    </button>
+
+                    <small>Press only in case of an emergency</small>
+
+                </div>
+
+                <div class="sos-decoration">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="section-heading">
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Access emergency services quickly.</p>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+
+                <div class="quick-card"
+                     (click)="showSection('hospitals')">
+
+                    <div class="quick-icon blue">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+
+                    <h3>Nearby Hospitals</h3>
+                    <p>Find hospitals around you</p>
+
+                    <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+                </div>
+
+
+                <div class="quick-card"
+                     (click)="getLocation()">
+
+                    <div class="quick-icon purple">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <h3>My Location</h3>
+                    <p>Share your current location</p>
+
+                    <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+                </div>
+
+
+                <div class="quick-card"
+                     (click)="showSection('firstaid')">
+
+                    <div class="quick-icon green">
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+
+                    <h3>First Aid</h3>
+                    <p>Get emergency first-aid guidance</p>
+
+                    <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+                </div>
+
+
+                <div class="quick-card"
+                     (click)="showSection('medical')">
+
+                    <div class="quick-icon orange">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+
+                    <h3>Medical Card</h3>
+                    <p>View your medical information</p>
+
+                    <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- MEDICAL CARD -->
+
+                <div class="dashboard-card medical-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="small-label">EMERGENCY PROFILE</span>
+                            <h2>Medical Information</h2>
+                        </div>
+
+                        <button class="icon-button"
+                                onclick="showSection('medical')">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+
+                    </div>
+
+                    
+<div class="medical-details">
+
+    <div class="medical-item">
+        <span>Blood Group</span>
+        <strong>{{ medicalInfo.bloodGroup || 'Not provided' }}</strong>
+    </div>
+
+    <div class="medical-item">
+        <span>Allergies</span>
+        <strong>{{ medicalInfo.allergies || 'Not provided' }}</strong>
+    </div>
+
+    <div class="medical-item">
+        <span>Medications</span>
+        <strong>{{ medicalInfo.medications || 'Not provided' }}</strong>
+    </div>
+
+    <div class="medical-item">
+        <span>Medical Conditions</span>
+        <strong>{{ medicalInfo.conditions || 'Not provided' }}</strong>
+    </div>
+
+</div>
+
+
+                    
+<button class="outline-button" (click)="viewMedicalCard()">
+    <i class="fa-solid fa-eye"></i>
+    View Medical Card
+</button>
+
+
+                </div>
+
+
+                <!-- CONTACTS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="small-label">EMERGENCY CONTACTS</span>
+                            <h2>Trusted People</h2>
+                        </div>
+
+                    </div>
+
+                    @for (contact of contacts; track contact._id || contact.phone) {
+                        <div class="contact-mini">
+                            <div class="contact-avatar">
+                                {{ contact.name.charAt(0).toUpperCase() }}
+                            </div>
+
+                            <div class="contact-info">
+                                <strong>{{ contact.name }}</strong>
+                                <span>{{ contact.relationship || 'Emergency Contact' }}</span>
+                            </div>
+
+                            <a class="call-button" [href]="'tel:' + contact.phone" [attr.aria-label]="'Call ' + contact.name">
+                                <i class="fa-solid fa-phone"></i>
+                            </a>
+
+                            <button
+    type="button"
+    class="delete-contact-btn"
+    (click)="deleteContact(contact._id)"
+    [attr.aria-label]="'Delete ' + contact.name"
+    title="Delete contact">
+    <i class="fa-solid fa-trash-can"></i>
+</button>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="location-card">
+
+                <div class="location-info">
+
+                    <div class="location-icon">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                    </div>
+
+                    <div>
+                        <span class="small-label">CURRENT LOCATION</span>
+                        <h3 id="locationText">Location not detected</h3>
+                        <p id="coordinates">
+                            Enable location to see your coordinates.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="primary-button"
+                        (click)="getLocation()">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Detect Location
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOSPITALS ================= -->
+
+        <section id="hospitals" class="page-section">
+
+            <div class="section-top">
+
+                <div>
+                    <span class="small-label">MEDICAL SERVICES</span>
+                    <h2>Nearby Hospitals</h2>
+                    <p>Find emergency medical services near you.</p>
+                </div>
+
+                <button class="primary-button"
+                        (click)="getLocation()">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    Use My Location
+                </button>
+
+                
+<div class="nearby-hospitals" *ngIf="nearbyHospitals.length > 0">
+  <h3>Nearby Hospitals</h3>
+
+  <div class="hospital-card" *ngFor="let hospital of nearbyHospitals">
+    <h4>{{ hospital.name }}</h4>
+
+    <p *ngIf="hospital.address">
+      {{ hospital.address }}
+    </p>
+
+    <p *ngIf="hospital.distance !== null">
+      {{ hospital.distance | number:'1.1-1' }} km away
+    </p>
+
+    <a
+      *ngIf="hospital.mapUrl"
+      [href]="hospital.mapUrl"
+      target="_blank"
+      rel="noopener noreferrer">
+      View on OpenStreetMap
+    </a>
+  </div>
+</div>
+
+
+            </div>
+
+
+            <div class="map-container">
+
+                <div class="fake-map">
+
+                    <div class="map-grid"></div>
+
+                    <div class="map-road road-one"></div>
+                    <div class="map-road road-two"></div>
+                    <div class="map-road road-three"></div>
+
+                    <div class="map-pin pin-one">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+
+                    <div class="map-pin pin-two">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+
+                    <div class="map-pin pin-three">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+
+                    <div class="user-location">
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+<div class="hospital-list">
+
+  <div *ngIf="nearbyHospitals.length === 0" class="empty-hospitals">
+    <i class="fa-solid fa-hospital"></i>
+    <h3>No Hospitals Found Yet</h3>
+    <p>Click "Use My Location" to search for hospitals near you.</p>
+  </div>
+
+  <div class="hospital-card" *ngFor="let hospital of nearbyHospitals">
+
+    <div class="hospital-icon">
+      <i class="fa-solid fa-hospital"></i>
+    </div>
+
+    <div class="hospital-info">
+      <h3>{{ hospital.name }}</h3>
+
+      <p *ngIf="hospital.address">
+        <i class="fa-solid fa-location-dot"></i>
+        {{ hospital.address }}
+      </p>
+
+      <p *ngIf="hospital.distance !== null">
+        <i class="fa-solid fa-route"></i>
+        {{ hospital.distance | number:'1.1-1' }} km away
+      </p>
+    </div>
+
+    <div class="hospital-actions">
+      <a
+        *ngIf="hospital.mapUrl"
+        [href]="hospital.mapUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="View hospital on map"
+      >
+        <i class="fa-solid fa-diamond-turn-right"></i>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+
+        </section>
+
+
+        <!-- ================= FIRST AID ================= -->
+
+        <section id="firstaid" class="page-section">
+
+            <div class="section-top">
+
+                <div>
+                    <span class="small-label">EMERGENCY GUIDANCE</span>
+                    <h2>First Aid</h2>
+                    <p>Quick guidance for common emergency situations.</p>
+                </div>
+
+            </div>
+
+
+            <div class="firstaid-grid">
+
+                <div class="aid-card"
+                     (click)="showFirstAid('Bleeding')">
+
+                    <div class="aid-icon red">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Bleeding</h3>
+                    <p>Control severe bleeding</p>
+
+                </div>
+
+
+                <div class="aid-card"
+                     (click)="showFirstAid('Burns')">
+
+                    <div class="aid-icon orange">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+
+                    <h3>Burns</h3>
+                    <p>Immediate burn care</p>
+
+                </div>
+
+
+                <div class="aid-card"
+                     (click)="showFirstAid('CPR')">
+
+                    <div class="aid-icon pink">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+
+                    <h3>CPR</h3>
+                    <p>Emergency CPR guidance</p>
+
+                </div>
+
+
+                <div class="aid-card"
+                     (click)="showFirstAid('Fracture')">
+
+                    <div class="aid-icon purple">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+
+                    <h3>Fracture</h3>
+                    <p>Basic fracture care</p>
+
+                </div>
+
+
+                <div class="aid-card"
+                     (click)="showFirstAid('Fainting')">
+
+                    <div class="aid-icon blue">
+                        <i class="fa-solid fa-person-falling"></i>
+                    </div>
+
+                    <h3>Fainting</h3>
+                    <p>What to do when someone faints</p>
+
+                </div>
+
+
+                <div class="aid-card"
+                     (click)="showFirstAid('Snake Bite')">
+
+                    <div class="aid-icon green">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+
+                    <h3>Snake Bite</h3>
+                    <p>Immediate safety guidance</p>
+
+                </div>
+
+            </div>
+            
+
+            
+<div class="firstaid-guidance" *ngIf="selectedFirstAid">
+  <h2>{{ selectedFirstAid }} — First Aid Guidance</h2>
+
+  <ul>
+    <li *ngFor="let instruction of firstAidGuidance[selectedFirstAid]">
+      {{ instruction }}
+    </li>
+  </ul>
+
+  <button class="outline-button" (click)="selectedFirstAid = ''">
+    Close Guidance
+  </button>
+</div>
+
+
+
+@if (selectedFirstAid) {
+  <div class="firstaid-modal-overlay" (click)="closeFirstAid()">
+    <div class="firstaid-dialog"
+         role="dialog"
+         aria-modal="true"
+         [attr.aria-label]="selectedFirstAid + ' first aid guidance'"
+         (click)="$event.stopPropagation()">
+
+      <div class="firstaid-dialog-header">
+        <div>
+          <span class="small-label">EMERGENCY GUIDANCE</span>
+          <h2>{{ selectedFirstAid }} — First Aid</h2>
+        </div>
+
+        <button type="button"
+                class="firstaid-close"
+                aria-label="Close dialog"
+                (click)="closeFirstAid()">
+          &times;
+        </button>
+      </div>
+
+      <ul class="firstaid-instructions">
+        @for (instruction of firstAidGuidance[selectedFirstAid]; track instruction) {
+          <li>{{ instruction }}</li>
+        }
+      </ul>
+
+      <button type="button"
+              class="primary-button"
+              (click)="closeFirstAid()">
+        Close
+      </button>
+    </div>
+  </div>
+}
+
+            
+
+        </section>
+
+
+        <!-- ================= CONTACTS ================= -->
+
+        <section id="contacts" class="page-section">
+
+            <div class="section-top">
+
+                <div>
+                    <span class="small-label">TRUSTED PEOPLE</span>
+                    <h2>Emergency Contacts</h2>
+                    <p>People who should be contacted during an emergency.</p>
+                </div>
+
+                <button class="primary-button"
+                        (click)="addContact()">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Contact
+                </button>
+
+            </div>
+
+
+            <div class="contacts-list" id="contactsList">
+
+                @if (contacts.length === 0) {
+                    <div class="large-contact-card">
+                        <div class="large-contact-info">
+                            <h3>No trusted people yet</h3>
+                            <span>Click Add Contact to save an emergency contact.</span>
+                        </div>
+                    </div>
+                }
+
+                @for (contact of contacts; track contact._id || contact.phone) {
+                    <div class="large-contact-card">
+                        <div class="large-contact-avatar">
+                            {{ contact.name.charAt(0).toUpperCase() }}
+                        </div>
+
+                        <div class="large-contact-info">
+                            <div class="contact-name">
+                                <h3>{{ contact.name }}</h3>
+                            </div>
+                            <p>{{ contact.phone }}</p>
+                            <span>{{ contact.relationship || 'Emergency contact' }}</span>
+                        </div>
+
+                        <div class="contact-buttons">
+                            <a class="round-call" [href]="'tel:' + contact.phone" [attr.aria-label]="'Call ' + contact.name">
+                                <i class="fa-solid fa-phone"></i>
+                            </a>
+                            <a class="round-message" [href]="'sms:' + contact.phone" [attr.aria-label]="'Message ' + contact.name">
+                                <i class="fa-solid fa-message"></i>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MEDICAL ================= -->
+
+        
+<section id="medical" class="page-section">
+
+  <div class="section-top">
+    <div>
+      <span class="small-label">HEALTH PROFILE</span>
+      <h2>Medical Information</h2>
+      <p>Important information that can help during emergencies.</p>
+    </div>
+  </div>
+
+  <div class="medical-profile">
+
+    <div class="medical-profile-header">
+      <div class="medical-user-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div>
+        <h2>Emergency Medical Profile</h2>
+        <p>Keep your important medical details up to date.</p>
+      </div>
+
+      <span class="verified">
+        <i class="fa-solid fa-circle-check"></i>
+        Profile Active
+      </span>
+    </div>
+
+    <form class="medical-grid" (submit)="$event.preventDefault(); saveMedicalInfo()">
+
+      <div class="medical-box">
+        <label for="bloodGroup">Blood Group</label>
+        <select id="bloodGroup"
+                name="bloodGroup"
+                [(ngModel)]="medicalInfo.bloodGroup">
+          <option value="">Select blood group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+
+      <div class="medical-box">
+        <label for="allergies">Allergies</label>
+        <input id="allergies"
+               name="allergies"
+               type="text"
+               [(ngModel)]="medicalInfo.allergies"
+               placeholder="e.g. dust allergy or None">
+      </div>
+
+      <div class="medical-box">
+        <label for="medications">Current Medications</label>
+        <input id="medications"
+               name="medications"
+               type="text"
+               [(ngModel)]="medicalInfo.medications"
+               placeholder="List current medicines">
+      </div>
+
+      <div class="medical-box">
+        <label for="conditions">Medical Conditions</label>
+        <input id="conditions"
+               name="conditions"
+               type="text"
+               [(ngModel)]="medicalInfo.conditions"
+               placeholder="e.g. asthma or None">
+      </div>
+
+      <div class="medical-box">
+        <label for="notes">Additional Medical Notes</label>
+        <textarea id="notes"
+                  name="notes"
+                  [(ngModel)]="medicalInfo.notes"
+                  placeholder="Add any other important details"></textarea>
+      </div>
+
+      <div>
+        <button type="submit"
+                class="primary-button"
+                [disabled]="medicalLoading">
+          <i class="fa-solid fa-floppy-disk"></i>
+          Save Medical Information
+        </button>
+      </div>
+
+    </form>
+
+    <div class="offline-card">
+      <div class="offline-icon">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+
+      <div>
+        <h3>Medical Information</h3>
+        <p>
+          Your information is saved in the database and can be
+          retrieved when you reopen this page while connected.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <section id="history" class="page-section">
+
+            <div class="section-top">
+
+                <div>
+                    <span class="small-label">ACTIVITY</span>
+                    <h2>Emergency History</h2>
+                    <p>View your previous emergency activities.</p>
+                </div>
+
+            </div>
+
+
+            
+
+<div class="timeline">
+  @if (emergencyHistory.length === 0) {
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>No Emergency History Yet</h3>
+        <p>Your recorded emergency activities will appear here.</p>
+      </div>
+    </div>
+  } @else {
+    @for (event of emergencyHistory; track event._id) {
+      <div class="timeline-item">
+        <div class="timeline-icon red-bg">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <div class="timeline-content">
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.description }}</p>
+          <span>{{ event.date | date:'MMMM d, y • h:mm a' }}</span>
+
+        </div>
+
+        <span class="completed">{{ event.status }}</span>
+        
+        <button
+    type="button"
+    class="delete-history-btn"
+    (click)="deleteEmergencyHistory(event)">
+    <i class="fa-solid fa-trash-can"></i>
+    Delete
+</button>
+
+      </div>
+    }
+  }
+</div>
+
+
+        </section>
+
+
+        
+<!-- ================= SETTINGS ================= -->
+
+<section id="settings" class="page-section">
+
+  <div class="section-top">
+    <div>
+      <span class="small-label">APPLICATION</span>
+      <h2>Settings</h2>
+      <p>Manage your emergency companion preferences.</p>
+    </div>
+  </div>
+
+  <div class="settings-card">
+
+    <!-- Location Sharing -->
+    <div class="setting-row">
+      <div class="setting-icon">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+
+      <div class="setting-text">
+        <h3>Location Sharing</h3>
+        <p>Allow the app to access your location.</p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span></span>
+      </label>
+    </div>
+
+    <!-- About option -->
+    <div
+      class="setting-row about-setting"
+      role="button"
+      tabindex="0"
+      (click)="showSection('about')"
+      (keydown.enter)="showSection('about')">
+
+      <div class="setting-icon">
+        <i class="fa-solid fa-circle-info"></i>
+      </div>
+
+      <div class="setting-text">
+        <h3>About</h3>
+        <p>Digital Emergency Companion v1.0</p>
+      </div>
+
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="page-section" style="display: none;">
+
+  <div class="section-top">
+    <div>
+      <span class="small-label">APPLICATION INFORMATION</span>
+      <h2>About Digital Emergency Companion</h2>
+      <p>Learn more about the project and its features.</p>
+    </div>
+  </div>
+
+  <div class="settings-card about-content">
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-circle-info"></i> Project Introduction</h3>
+      <p>
+        Digital Emergency Companion is a web application that brings
+        emergency contacts, medical information, nearby hospital
+        search, first-aid guidance, and emergency history together
+        in one place.
+      </p>
+    </div>
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-bullseye"></i> Purpose</h3>
+      <p>
+        The purpose of this project is to help users organize and
+        access essential emergency information when needed.
+      </p>
+    </div>
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-list-check"></i> Key Features</h3>
+      <ul>
+        <li>Nearby hospital search</li>
+        <li>Emergency contact management</li>
+        <li>Medical information storage</li>
+        <li>First-aid guidance</li>
+        <li>Emergency history</li>
+        <li>Dark mode</li>
+      </ul>
+    </div>
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-code"></i> Technologies Used</h3>
+      <p>Angular, Node.js, Express.js, and MongoDB.</p>
+    </div>
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-book-open"></i> How to Use</h3>
+      <p>
+        Add trusted emergency contacts, update your medical information,
+        search for nearby hospitals, explore first-aid guidance, and
+        review your emergency history through the sidebar.
+      </p>
+    </div>
+
+    <div class="about-info-block">
+      <h3><i class="fa-solid fa-award"></i> Credits</h3>
+      <p>
+        The application uses Angular, Node.js, Express.js, and MongoDB.
+        OpenStreetMap and the Overpass API may provide hospital location
+        data, and Font Awesome provides interface icons.
+      </p>
+    </div>
+
+    <div class="about-notice">
+      <strong>Important:</strong>
+      This application is an emergency-support tool, not a replacement
+      for professional medical advice or emergency services.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+    </div>
+
+</main>
+
+
+<!-- ================= SOS MODAL ================= -->
+
+<div class="modal-overlay" id="sosModal">
+
+    <div class="modal">
+
+        <button class="close-modal"
+                onclick="closeSOS()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-danger-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <h2>Activate Emergency SOS?</h2>
+
+        <p>
+            This will alert your emergency contacts and
+            share your current location.
+        </p>
+
+        <div class="emergency-actions">
+
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Share location</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-phone"></i>
+                <span>Alert contacts</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-hospital"></i>
+                <span>Find hospital</span>
+            </div>
+
+        </div>
+
+        <button class="confirm-sos"
+                onclick="activateSOS()">
+            <i class="fa-solid fa-phone"></i>
+            Activate SOS
+        </button>
+
+        <button class="cancel-button"
+                onclick="closeSOS()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FIRST AID MODAL ================= -->
+
+<div class="modal-overlay" id="aidModal">
+
+    <div class="modal aid-modal">
+
+        <button class="close-modal"
+                onclick="closeAid()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-danger-icon firstaid-modal-icon">
+            <i class="fa-solid fa-kit-medical"></i>
+        </div>
+
+        <h2 id="aidTitle">First Aid</h2>
+
+        <div id="aidContent" class="aid-content"></div>
+
+        <button class="confirm-sos"
+                onclick="showToast('Emergency services should be contacted for serious injuries.')">
+            <i class="fa-solid fa-phone"></i>
+            Call Emergency Services
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<div id="medical-card-modal"
+     style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+
+  <div style="background: white; color: #222; padding: 25px; border-radius: 16px; width: 100%; max-width: 450px;">
+
+    <h2>Emergency Medical Card</h2>
+    <p>Your important medical information</p>
+    <hr>
+
+    <p><strong>Blood Group:</strong> {{ medicalInfo.bloodGroup || 'Not provided' }}</p>
+    <p><strong>Allergies:</strong> {{ medicalInfo.allergies || 'Not provided' }}</p>
+    <p><strong>Medications:</strong> {{ medicalInfo.medications || 'Not provided' }}</p>
+    <p><strong>Medical Conditions:</strong> {{ medicalInfo.conditions || 'Not provided' }}</p>
+    <p><strong>Additional Notes:</strong> {{ medicalInfo.notes || 'Not provided' }}</p>
+
+    <button class="primary-button"
+            (click)="closeMedicalCard()">
+      Close
+    </button>
+
+  </div>
+</div>
+
+
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section about-page" style="display: none;">
+
+  <!-- Page heading -->
+  <div class="about-hero">
+    <div class="about-hero-icon">
+      <i class="fa-solid fa-heart-pulse"></i>
+    </div>
+
+    <p class="about-eyebrow">ABOUT OUR PROJECT</p>
+
+    <h1>Digital Emergency Companion</h1>
+
+    <p class="about-intro">
+      Your digital companion for emergency preparedness, essential
+      medical information, and quick access to emergency resources.
+    </p>
+
+    <span class="about-version">Academic Project</span>
+  </div>
+
+  <!-- Introduction and purpose -->
+  <div class="about-grid">
+    <article class="about-card">
+      <div class="about-icon purple">
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+      <h2>Project Introduction</h2>
+      <p>
+        Digital Emergency Companion is a web application designed to
+        organize important emergency contacts, medical details, first-aid
+        guidance, nearby hospital information, and emergency activity history
+        in one convenient place.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <div class="about-icon red">
+        <i class="fa-solid fa-bullseye"></i>
+      </div>
+      <h2>Our Purpose</h2>
+      <p>
+        The purpose of this project is to make essential emergency
+        information easier to access and manage. It helps users keep
+        important details organized so they can refer to them when needed.
+      </p>
+    </article>
+  </div>
+
+  <!-- Key features -->
+  <div class="about-section-block">
+    <div class="about-heading">
+      <span class="about-eyebrow">WHAT THE APP OFFERS</span>
+      <h2>Key Features</h2>
+      <p>Explore the main features available in the application.</p>
+    </div>
+
+    <div class="about-features">
+      <div class="about-feature">
+        <i class="fa-solid fa-hospital"></i>
+        <h3>Nearby Hospitals</h3>
+        <p>Search for nearby hospitals using location services when available.</p>
+      </div>
+
+      <div class="about-feature">
+        <i class="fa-solid fa-address-book"></i>
+        <h3>Emergency Contacts</h3>
+        <p>Save, view, call, and manage trusted emergency contacts.</p>
+      </div>
+
+      <div class="about-feature">
+        <i class="fa-solid fa-notes-medical"></i>
+        <h3>Medical Information</h3>
+        <p>Store and view important medical details in one place.</p>
+      </div>
+
+      <div class="about-feature">
+        <i class="fa-solid fa-kit-medical"></i>
+        <h3>First-Aid Guide</h3>
+        <p>Access basic first-aid information for common emergencies.</p>
+      </div>
+
+      <div class="about-feature">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <h3>Emergency History</h3>
+        <p>Review recorded emergency activities and available history entries.</p>
+      </div>
+
+      <div class="about-feature">
+        <i class="fa-solid fa-moon"></i>
+        <h3>Dark Mode</h3>
+        <p>Switch the application's appearance using the dark-mode option.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to use -->
+  <div class="about-section-block">
+    <div class="about-heading">
+      <span class="about-eyebrow">GETTING STARTED</span>
+      <h2>How to Use the App</h2>
+      <p>Follow these steps to make use of the available features.</p>
+    </div>
+
+    <div class="about-steps">
+      <div class="about-step">
+        <span class="step-number">01</span>
+        <div>
+          <h3>Add Emergency Contacts</h3>
+          <p>Open Contacts and save the names and phone numbers of trusted people.</p>
+        </div>
+      </div>
+
+      <div class="about-step">
+        <span class="step-number">02</span>
+        <div>
+          <h3>Update Medical Information</h3>
+          <p>Enter relevant medical details and keep them up to date.</p>
+        </div>
+      </div>
+
+      <div class="about-step">
+        <span class="step-number">03</span>
+        <div>
+          <h3>Find Nearby Hospitals</h3>
+          <p>Open Hospitals and allow location access if prompted.</p>
+        </div>
+      </div>
+
+      <div class="about-step">
+        <span class="step-number">04</span>
+        <div>
+          <h3>Explore First Aid and History</h3>
+          <p>Use the First Aid section for basic guidance and Emergency History to review recorded activities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technology stack -->
+  <div class="about-section-block">
+    <div class="about-heading">
+      <span class="about-eyebrow">BUILT WITH</span>
+      <h2>Technology Stack</h2>
+    </div>
+
+    <div class="tech-stack">
+      <span><i class="fa-brands fa-angular"></i> Angular</span>
+      <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+      <span><i class="fa-solid fa-server"></i> Express.js</span>
+      <span><i class="fa-solid fa-database"></i> MongoDB</span>
+      <span><i class="fa-brands fa-css3-alt"></i> HTML & CSS</span>
+    </div>
+  </div>
+
+  <!-- Credits and acknowledgements -->
+  <div class="about-section-block">
+    <div class="about-heading">
+      <span class="about-eyebrow">ACKNOWLEDGEMENTS</span>
+      <h2>Credits and Acknowledgements</h2>
+      <p>Technologies and resources used in this project.</p>
+    </div>
+
+    <article class="about-card">
+      <div class="about-icon blue">
+        <i class="fa-solid fa-award"></i>
+      </div>
+
+      <h2>Credits and Acknowledgements</h2>
+
+      <p>
+        This project uses Angular for the frontend, Node.js and Express
+        for backend services, and MongoDB for data storage.
+      </p>
+
+      <p>
+        OpenStreetMap and the Overpass API may provide map and hospital
+        location data where supported by the application.
+      </p>
+
+      <p>
+        Font Awesome icons are used for interface illustrations.
+      </p>
+    </article>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="about-disclaimer">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>
+      <h3>Important Note</h3>
+      <p>
+        This application is intended as an emergency-support and
+        information-organizing tool. It is not a substitute for professional
+        medical advice or emergency services. In a serious emergency,
+        contact the appropriate local emergency service immediately.
+        Do not rely on this app as your only source of emergency assistance.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="about-footer">
+    <i class="fa-solid fa-heart-pulse"></i>
+    Digital Emergency Companion
+    <p>Designed to help keep essential information within reach.</p>
+  </footer>
+
+</section>
